@@ -1,25 +1,31 @@
 package tests;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tests.testdata.TestDataTTGClub;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 
 public class TTGStartPageTests {
+    TestDataTTGClub testData = new TestDataTTGClub();
 
     @BeforeEach
     void setUp() {
         open("https://5e14.ttg.club");
     }
 
+    @AfterEach
+    void afterEachTest() {closeWebDriver();}
+
     @Test
     void  displaySearchResult() {
         $(".search_row_g").click();
-        $(".n-input__input-el").setValue("Заклинания");
+        $(".n-input__input-el").setValue(testData.searchQuery);
         $("a[href=\"/screens/spells\"]").click();
-        $(".section-header").shouldHave(text("Заклинания"));
+        $(".section-header").shouldHave(text(testData.searchQuery));
     }
 
     @Test
@@ -31,7 +37,7 @@ public class TTGStartPageTests {
     @Test
     void openBookmarksList() {
         $$(".navbar__btn").get(1).click();
-        $(".bookmarks__info--title").shouldHave(text("Закладки"));
+        $(".bookmarks__info--title").shouldHave(text(testData.bookmarksExpectedTitle));
     }
 
     @Test
@@ -50,7 +56,7 @@ public class TTGStartPageTests {
     @Test
     void formulaCalculator() {
         $(".n-float-button").click();
-        $(".n-input__input-el").setValue("d20");
+        $(".n-input__input-el").setValue(testData.formula);
         $(".n-input__input-el").pressEnter();
         $("._dice-history-item__result_f039v_10").shouldNotBe(empty);
     }
@@ -67,20 +73,20 @@ public class TTGStartPageTests {
         $$(".navbar__btn").get(5).click();
         $$(".__button-1vhidqx-lmmd").get(1).click();
         $("#body")
-                .shouldHave(cssValue("background-color", "rgba(19, 26, 32, 1)"));
+                .shouldHave(cssValue(testData.cssPropertyName, testData.cssExpectedValue));
     }
 
     @Test
     void goingToTheSearchPage() {
         $$(".navbar__btn").get(2).click();
         $(".search-modal__all").click();
-        $(".page-layout__title").shouldHave(text(" Поиск по сайту "));
+        $(".page-layout__title").shouldHave(text(testData.searchPageTitle));
     }
 
     @Test
     void reportAboutBug() {
         $$(".navbar__btn").get(3).click();
-        $(".bug-report-modal__title").shouldHave(text("Сообщить о баге"));
+        $(".bug-report-modal__title").shouldHave(text(testData.bugReportModalTitle));
     }
 
 }
