@@ -12,6 +12,7 @@ public class TTGClubStartPage {
     private final SelenideElement navbarBookmarksButton = $$(".navbar__btn").get(1);
     private final SelenideElement classesCard = $("a[href='/classes'][class='card']");
     private final SelenideElement tokenatorChapter = $(".token_library");
+    private final SelenideElement formulaCalculator = $(".n-float-button");
     private final SelenideElement videoLink = $("._link_1lg7o_18");
     private final SelenideElement colorThemeToggle = $$(".navbar__btn").get(5);
     private final SelenideElement navbarSearchButton = $$(".navbar__btn").get(2);
@@ -30,7 +31,7 @@ public class TTGClubStartPage {
         return $(".nav-menu");
     }
 
-    public SelenideElement openBookmarksList(String title) {
+    public SelenideElement openBookmarksList() {
         navbarBookmarksButton.click();
 
         return $(".bookmarks__info--title");
@@ -49,8 +50,8 @@ public class TTGClubStartPage {
         return $(".page-layout__title");
     }
 
-    public String getVideoTitle() {
-        return videoLink.text();
+    public SelenideElement getVideoLink() {
+        return videoLink;
     }
 
     public SelenideElement openVideo() {
@@ -78,5 +79,14 @@ public class TTGClubStartPage {
 
         return $(".bug-report-modal__title");
     }
+
+    public SelenideElement formulaCalculate(String formula) {
+        formulaCalculator.click();
+        $(".n-input__input-el").setValue(formula);
+        $(".n-input__input-el").pressEnter();
+
+        return $("._dice-history-item__result_f039v_10");
+    }
+
 
 }
