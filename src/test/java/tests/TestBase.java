@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.TTGClubStartPage;
 import helpers.Attach;
-import tests.secrets.Secrets;
+
 
 import java.util.Map;
 
@@ -27,14 +27,13 @@ public class TestBase {
         Configuration.baseUrl = System.getProperty("baseUrl");
         Configuration.browserVersion = System.getProperty("browserVersion");
         Configuration.browser = System.getProperty("browser");
-        Configuration.remote = Secrets.remoteBrowserUrl;
+        Configuration.remote = System.getProperty("remoteBrowserUrl");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = Secrets.remoteBrowserUrl;
     }
 
     @BeforeEach
