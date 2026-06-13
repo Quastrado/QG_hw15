@@ -1,27 +1,15 @@
 package tests;
 
 import com.codeborne.selenide.SelenideElement;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pages.TTGClubStartPage;
 import tests.testdata.TestDataTTGClub;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
 
 
-public class TTGStartPageTests {
+public class TTGStartPageTests extends TestBase {
     TestDataTTGClub testData = new TestDataTTGClub();
-    TTGClubStartPage ttgClubStartPage = new TTGClubStartPage();
 
-    @BeforeEach
-    void setUp() {
-        open("https://5e14.ttg.club");
-    }
-
-    @AfterEach
-    void afterEachTest() {closeWebDriver();}
 
     @Test
     void  displaySearchResult() {

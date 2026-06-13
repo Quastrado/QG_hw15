@@ -7,9 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import pages.PracticeFormPage;
-import pages.TextBoxPage;
-import pages.components.ResultModalComponent;
+import pages.TTGClubStartPage;
 import helpers.Attach;
 import tests.secrets.Secrets;
 
@@ -20,9 +18,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
 
-    PracticeFormPage practiceFormPage = new PracticeFormPage();
-    ResultModalComponent resultModalComponent = new ResultModalComponent();
-    TextBoxPage textBoxPage = new TextBoxPage();
+    TTGClubStartPage ttgClubStartPage = new TTGClubStartPage();
 
     @BeforeAll
     static void setupSelenideEnv(){
