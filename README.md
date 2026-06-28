@@ -26,4 +26,61 @@
 - Проверка перехода на страницу с Токенатором
 
 ## Запуск тестов
-### Из командной строки
+### Из терминала
+```bash
+clean test \
+-DbaseUrl=$BASE_URL \
+-DremoteBrowserUrl=$SELENOID_URL \
+-Dbrowser=$BROWSER\
+-DbrowserVersion=$BROWSER_VERSION \
+-Dheadless=$HEADLESS \
+-DbrowserSize=$BROWSER_SIZE
+```
+Используемые параметры:
+- BASE_URL (url адрес тестируемой страницы);
+- SELENOID_URL (url адрес удалённой фермы браузеров);
+- BROWSER (браузер);
+- BROWSER_VERSION (версия браузера);
+- HEADLESS (параметр для запуска UI тестов без открытия браузера);
+- BROWSER_SIZE (параметр расширения браузера)
+
+ ### Из Jemkins
+<p align="center">
+<img title="Job" src="images/job.png">
+</p>
+
+- Выбрать браузер;
+- Выбрать разрешение браузера;
+- Запустить сборку
+
+## Allure Report
+### Дашборд
+<p align="center">
+<img title="Overview" src="images/allure_report_overview.png">
+</p>
+
+### Пройденные тесты
+<p align="center">
+<img title="Suites" src="images/allure_report_suites.png">
+</p>
+
+### Метрики
+<p align="center">
+<img title="Graphs" src="images/allure_report_graphs.png">
+</p>
+
+## Allure TestOps
+### Дашборд
+<p align="center">
+<img title="Dashboard" src="images/dashboard.png">
+</p>
+
+### Автоматизированные и ручные тест-кейсы
+<p align="center">
+<img title="Testcases" src="images/testcases.png">
+</p>
+
+## Telegram уведомления
+<p align="center">
+<img title="Telegram" src="images/telegram.jpg" width="600">
+</p>
