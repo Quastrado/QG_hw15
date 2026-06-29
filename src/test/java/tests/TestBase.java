@@ -23,11 +23,11 @@ public class TestBase {
 
     @BeforeAll
     static void setupSelenideEnv(){
-        Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.headless = Boolean.parseBoolean(System.getProperty("headless"));
-        Configuration.baseUrl = System.getProperty("baseUrl");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
+        Configuration.baseUrl = System.getProperty("baseUrl", "https://5e14.ttg.club");
         Configuration.browserVersion = System.getProperty("browserVersion");
-        Configuration.browser = System.getProperty("browser");
+        Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.remote = System.getProperty("remoteBrowserUrl");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
@@ -39,7 +39,7 @@ public class TestBase {
 
     @BeforeEach
     void beforeEachTest() {
-        Selenide.open(System.getProperty("baseUrl"));
+        Selenide.open(System.getProperty("baseUrl", "https://5e14.ttg.club"));
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
