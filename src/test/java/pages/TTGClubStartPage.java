@@ -11,7 +11,7 @@ public class TTGClubStartPage {
 
     private final SelenideElement pageSearchRow = $(".search_row_g");
 
-    private final SelenideElement navbarBookmarksButton = $$(".navbar__btn").get(1);
+
     private final SelenideElement classesCard = $("a[href='/classes'][class='card']");
     private final SelenideElement tokenatorChapter = $(".token_library");
     private final SelenideElement formulaCalculator = $(".n-float-button");
@@ -25,14 +25,6 @@ public class TTGClubStartPage {
         pageSearchRow.click();
 
         return new MainPageSearchModal();
-    }
-
-
-    @Step("Open the bookmarks list")
-    public SelenideElement openBookmarksList() {
-        navbarBookmarksButton.click();
-
-        return $(".bookmarks__info--title");
     }
 
     @Step("Go to the class page from the main page")

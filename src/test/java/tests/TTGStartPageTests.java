@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.TTGClubSpellsScreenPage;
+import pages.components.Bookmarks;
 import pages.components.MainPageSearchModal;
 import pages.components.Navbar;
 import pages.components.NavigationMenu;
@@ -32,15 +33,15 @@ public class TTGStartPageTests extends TestBase {
     @Test
     @DisplayName("Checking the navigation menu display")
     void checkOpenNavigationModal() {
-        NavigationMenu navigationMenu = navbar.buttonClick();
+        NavigationMenu navigationMenu = navbar.navigationMenuButtonClick();
         navigationMenu.becomeVisible();
     }
 
     @Test
     @DisplayName("Checking the display of the bookmarks list")
     void checkOpenBookmarksList() {
-        SelenideElement bookmarksListTitle = ttgClubStartPage.openBookmarksList();
-        bookmarksListTitle.shouldHave(text(testData.bookmarksExpectedTitle));
+        Bookmarks bookmarks = navbar.bookmarksButtonClick();
+        bookmarks.becomeVisible();
     }
 
     @Test
