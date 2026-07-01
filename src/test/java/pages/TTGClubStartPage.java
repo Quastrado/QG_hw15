@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$$;
 public class TTGClubStartPage {
 
     private final SelenideElement pageSearchRow = $(".search_row_g");
-    private final SelenideElement navbarNavigationButton =  $$(".navbar__btn").get(0);
+
     private final SelenideElement navbarBookmarksButton = $$(".navbar__btn").get(1);
     private final SelenideElement classesCard = $("a[href='/classes'][class='card']");
     private final SelenideElement tokenatorChapter = $(".token_library");
@@ -27,12 +27,6 @@ public class TTGClubStartPage {
         return new MainPageSearchModal();
     }
 
-    @Step("Open the navigation menu")
-    public SelenideElement openNavigationMenu() {
-        navbarNavigationButton.click();
-
-        return $(".nav-menu");
-    }
 
     @Step("Open the bookmarks list")
     public SelenideElement openBookmarksList() {

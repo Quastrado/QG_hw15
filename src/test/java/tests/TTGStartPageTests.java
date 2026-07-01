@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.TTGClubSpellsScreenPage;
 import pages.components.MainPageSearchModal;
+import pages.components.Navbar;
+import pages.components.NavigationMenu;
 import tests.testdata.TestDataTTGClub;
 
 import static com.codeborne.selenide.Condition.*;
@@ -12,6 +14,7 @@ import static com.codeborne.selenide.Condition.*;
 
 public class TTGStartPageTests extends TestBase {
     TestDataTTGClub testData = new TestDataTTGClub();
+    Navbar navbar = new Navbar();
 
 
     @Test
@@ -29,8 +32,8 @@ public class TTGStartPageTests extends TestBase {
     @Test
     @DisplayName("Checking the navigation menu display")
     void checkOpenNavigationModal() {
-        SelenideElement navigationModal = ttgClubStartPage.openNavigationMenu();
-        navigationModal.shouldBe(visible);
+        NavigationMenu navigationMenu = navbar.buttonClick();
+        navigationMenu.becomeVisible();
     }
 
     @Test
