@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import pages.components.MainPageSearchModal;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -19,12 +20,11 @@ public class TTGClubStartPage {
     private final SelenideElement navbarSearchButton = $$(".navbar__btn").get(2);
     private final SelenideElement navbarBugReportButton = $$(".navbar__btn").get(3);
 
-    @Step("Execute a search query from the main page")
-    public SelenideElement searchFromPage(String searchQuery, String searchResult) {
+    @Step("Call search modal from the main page")
+    public MainPageSearchModal callSearchModalFromMainPage() {
         pageSearchRow.click();
-        $(".n-input__input-el").setValue(searchQuery);
-        $("a[href=\"" + searchResult + "\"]").click();
-        return $(".section-header");
+
+        return new MainPageSearchModal();
     }
 
     @Step("Open the navigation menu")

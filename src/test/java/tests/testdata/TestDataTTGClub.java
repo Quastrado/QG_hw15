@@ -1,9 +1,16 @@
 package tests.testdata;
 
+import pages.TTGClubSpellsScreenPage;
+
+import java.util.Map;
+
 public class TestDataTTGClub {
 
     public String searchQuery = "Заклинания";
     public String searchResultLink = "/screens/spells";
+    public Map<String, TTGClubSpellsScreenPage> searchResultPage = Map.ofEntries(
+            Map.entry("/screens/spells", new TTGClubSpellsScreenPage())
+    );
     public String bookmarksExpectedTitle = "Закладки";
     public String choosenClass = "bard";
     public String formula = "d20";

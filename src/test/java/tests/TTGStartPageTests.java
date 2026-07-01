@@ -3,6 +3,8 @@ package tests;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pages.TTGClubSpellsScreenPage;
+import pages.components.MainPageSearchModal;
 import tests.testdata.TestDataTTGClub;
 
 import static com.codeborne.selenide.Condition.*;
@@ -15,11 +17,13 @@ public class TTGStartPageTests extends TestBase {
     @Test
     @DisplayName("Checking a simple search script from the main page")
     void  displaySearchResult() {
-        SelenideElement searchResultPageHeader = ttgClubStartPage.searchFromPage(
-          testData.searchQuery,
-          testData.searchResultLink
+        MainPageSearchModal searchModal = ttgClubStartPage.callSearchModalFromMainPage();
+        searchModal.typeSearchQuery(testData.searchQuery);
+        TTGClubSpellsScreenPage resultPage = searchModal.redirectToResultPage(
+                testData.searchResultLink,
+                testData.searchResultPage
         );
-        searchResultPageHeader.shouldHave(text(testData.searchQuery));
+        assert resultPage.getSectionHeaderText(testData.searchQuery).equals(testData.searchQuery);
     }
 
     @Test
