@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pages.SearchPage;
 import pages.TTGClubSpellsScreenPage;
 import pages.components.*;
 import tests.testdata.TestDataTTGClub;
@@ -85,8 +86,9 @@ public class TTGStartPageTests extends TestBase {
     @Test
     @DisplayName("Checking the transition to the search page")
     void checkGoingToTheSearchPage() {
-        SelenideElement searchedPageTitle = ttgClubStartPage.goingToTheSearchPage();
-        searchedPageTitle.shouldHave(text(testData.searchPageTitle));
+        SearchModal searchModal = navbar.searchButtonClick();
+        SearchPage searchPage = searchModal.redirectToSearchPage();
+        assert searchPage.getPageTitleText().equals(testData.searchPageTitle);
     }
 
     @Test

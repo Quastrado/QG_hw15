@@ -9,6 +9,7 @@ public class Navbar {
 
     private final SelenideElement navbarNavigationButton =  $$(".navbar__btn").get(0);
     private final SelenideElement navbarBookmarksButton = $$(".navbar__btn").get(1);
+    private final SelenideElement navbarSearchButton = $$(".navbar__btn").get(2);
     private final SelenideElement navbarBugReportButton = $$(".navbar__btn").get(3);
 
     @Step("Navigation button click")
@@ -30,6 +31,13 @@ public class Navbar {
         navbarBugReportButton.click();
 
         return new BugReportModal();
+    }
+
+    @Step("Search button click")
+    public SearchModal searchButtonClick() {
+        navbarSearchButton.click();
+
+        return new SearchModal();
     }
 
 }

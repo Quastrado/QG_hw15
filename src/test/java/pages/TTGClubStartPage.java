@@ -15,7 +15,7 @@ public class TTGClubStartPage {
     private final SelenideElement formulaCalculator = $(".n-float-button");
     private final SelenideElement videoLink = $("._link_1lg7o_18");
     private final SelenideElement colorThemeToggle = $$(".navbar__btn").get(5);
-    private final SelenideElement navbarSearchButton = $$(".navbar__btn").get(2);
+
 
     @Step("Call search modal from the main page")
     public MainPageSearchModal callSearchModalFromMainPage() {
@@ -57,14 +57,6 @@ public class TTGClubStartPage {
         $$(".__button-1vhidqx-lmmd").get(1).click();
 
         return $("#body");
-    }
-
-    @Step("Execute a search query from the navigation bar")
-    public SelenideElement goingToTheSearchPage() {
-        navbarSearchButton.click();
-        $(".search-modal__all").click();
-
-        return $(".page-layout__title");
     }
 
     @Step("Calculate the formula")
