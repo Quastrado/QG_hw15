@@ -4,10 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.TTGClubSpellsScreenPage;
-import pages.components.Bookmarks;
-import pages.components.MainPageSearchModal;
-import pages.components.Navbar;
-import pages.components.NavigationMenu;
+import pages.components.*;
 import tests.testdata.TestDataTTGClub;
 
 import static com.codeborne.selenide.Condition.*;
@@ -95,8 +92,8 @@ public class TTGStartPageTests extends TestBase {
     @Test
     @DisplayName("Checking the display of the bug message window")
     void reportAboutBug() {
-        SelenideElement bugReportModalTitle = ttgClubStartPage.openBugReportModal();
-        bugReportModalTitle.shouldHave(text(testData.bugReportModalTitle));
+        BugReportModal bugReportModal = navbar.bugReportButtonClick();
+        bugReportModal.becomeVisible();
     }
 
 }

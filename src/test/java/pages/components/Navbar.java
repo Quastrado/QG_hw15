@@ -9,6 +9,7 @@ public class Navbar {
 
     private final SelenideElement navbarNavigationButton =  $$(".navbar__btn").get(0);
     private final SelenideElement navbarBookmarksButton = $$(".navbar__btn").get(1);
+    private final SelenideElement navbarBugReportButton = $$(".navbar__btn").get(3);
 
     @Step("Navigation button click")
     public NavigationMenu navigationMenuButtonClick() {
@@ -22,6 +23,13 @@ public class Navbar {
         navbarBookmarksButton.click();
 
         return new Bookmarks();
+    }
+
+    @Step("Bug report button click")
+    public BugReportModal bugReportButtonClick() {
+        navbarBugReportButton.click();
+
+        return new BugReportModal();
     }
 
 }
