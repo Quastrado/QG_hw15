@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class TTGClubStartPage {
 
-    private final String backgroundColor = $("#body").getCssValue("background-color");
+    private final SelenideElement background = $("#body");
     private final SelenideElement pageSearchRow = $(".search_row_g");
     private final SelenideElement classesCard = $("a[href='/classes'][class='card']");
     private final SelenideElement tokenatorChapter = $(".token_library");
@@ -53,7 +53,8 @@ public class TTGClubStartPage {
 
     @Step("Get background color")
     public String getBackgroundColor() {
-        return backgroundColor;
+
+        return background.getCssValue("background-color");
     }
 
     @Step("Calculate the formula")
