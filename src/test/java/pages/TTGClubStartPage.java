@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import pages.components.FormulaCalculator;
 import pages.components.MainPageSearchModal;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -13,7 +14,7 @@ public class TTGClubStartPage {
     private final SelenideElement pageSearchRow = $(".search_row_g");
     private final SelenideElement classesCard = $("a[href='/classes'][class='card']");
     private final SelenideElement tokenatorChapter = $(".token_library");
-    private final SelenideElement formulaCalculator = $(".n-float-button");
+    private final SelenideElement formulaCalculatorButton = $(".n-float-button");
     private final SelenideElement videoLink = $("._link_1lg7o_18");
 
 
@@ -58,12 +59,10 @@ public class TTGClubStartPage {
     }
 
     @Step("Calculate the formula")
-    public SelenideElement formulaCalculate(String formula) {
-        formulaCalculator.click();
-        $(".n-input__input-el").setValue(formula);
-        $(".n-input__input-el").pressEnter();
+    public FormulaCalculator formulaCalculatorButtonClick() {
+        formulaCalculatorButton.click();
 
-        return $("._dice-history-item__result_f039v_10");
+        return new FormulaCalculator();
     }
 
 

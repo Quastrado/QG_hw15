@@ -60,10 +60,9 @@ public class TTGStartPageTests extends TestBase {
     @Test
     @DisplayName("Checking the working out of the formula calculator")
     void checkFormulaCalculate() {
-        SelenideElement calculateResult = ttgClubStartPage.formulaCalculate(
-                testData.formula
-        );
-        calculateResult.shouldNotBe(empty);
+        FormulaCalculator formulaCalculator = ttgClubStartPage.formulaCalculatorButtonClick();
+        formulaCalculator.calculateFormula(testData.formula);
+        formulaCalculator.getCalculateResult().shouldNotBe(empty);
     }
 
     @Test
@@ -77,7 +76,6 @@ public class TTGStartPageTests extends TestBase {
     @Test
     @DisplayName("Checking to switch to a dark color theme")
     void checkDarkThemeTurning() {
-//        open("https://5e14.ttg.club");
         ColorThemeModal colorThemeModal = navbar.colorThemeButtonClick();
         colorThemeModal.setDarkColorTheme();
         assert ttgClubStartPage.getBackgroundColor().equals(testData.cssExpectedValue);
