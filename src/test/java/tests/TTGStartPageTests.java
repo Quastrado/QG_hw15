@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.SearchPage;
 import pages.TTGClubSpellsScreenPage;
+import pages.TokenatorPage;
 import pages.components.*;
 import tests.testdata.TestDataTTGClub;
 
@@ -53,8 +54,8 @@ public class TTGStartPageTests extends TestBase {
     @Test
     @DisplayName("Checking the transition to the Tokenator page")
     void checkGoingToTheTokenator() {
-        SelenideElement tokenatorPageTitle = ttgClubStartPage.goingToTokenator();
-        tokenatorPageTitle.shouldHave(visible);
+        TokenatorPage tokenatorPage = ttgClubStartPage.redirectToTokenator();
+        tokenatorPage.getPageTitle().shouldHave(visible);
     }
 
     @Test

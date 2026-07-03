@@ -34,10 +34,10 @@ public class TTGClubStartPage {
     }
 
     @Step("Go to the tokenizer page from the main page")
-    public SelenideElement goingToTokenator() {
+    public TokenatorPage redirectToTokenator() {
         tokenatorChapter.click();
 
-        return $(".page-layout__title");
+        return new TokenatorPage();
     }
 
     @Step("Interaction with the video link")
