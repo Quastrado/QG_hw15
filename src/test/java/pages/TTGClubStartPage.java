@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import pages.components.FormulaCalculator;
 import pages.components.MainPageSearchModal;
+import pages.components.VideoMadal;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -40,16 +41,16 @@ public class TTGClubStartPage {
         return new TokenatorPage();
     }
 
-    @Step("Interaction with the video link")
-    public SelenideElement getVideoLink() {
-        return videoLink;
+    @Step("Get text of video link")
+    public String getVideoLinkText() {
+        return videoLink.text();
     }
 
     @Step("Open video")
-    public SelenideElement openVideo() {
+    public VideoMadal openVideo() {
         videoLink.click();
 
-        return $(".base-modal__title");
+        return new VideoMadal();
     }
 
     @Step("Get background color")
