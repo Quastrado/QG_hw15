@@ -39,7 +39,7 @@ public class TestBase {
 
     @BeforeEach
     void beforeEachTest() {
-        Selenide.open(System.getProperty("baseUrl", "https://5e14.ttg.club"));
+        Selenide.open();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 

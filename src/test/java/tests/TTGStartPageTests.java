@@ -11,6 +11,7 @@ import tests.testdata.TestDataTTGClub;
 import static com.codeborne.selenide.Condition.*;
 
 
+
 public class TTGStartPageTests extends TestBase {
     TestDataTTGClub testData = new TestDataTTGClub();
     Navbar navbar = new Navbar();
@@ -76,11 +77,10 @@ public class TTGStartPageTests extends TestBase {
     @Test
     @DisplayName("Checking to switch to a dark color theme")
     void checkDarkThemeTurning() {
-        SelenideElement background = ttgClubStartPage.turnDarkTheme();
-        background.shouldHave(cssValue(
-                testData.cssPropertyName,
-                testData.cssExpectedValue
-        ));
+//        open("https://5e14.ttg.club");
+        ColorThemeModal colorThemeModal = navbar.colorThemeButtonClick();
+        colorThemeModal.setDarkColorTheme();
+        assert ttgClubStartPage.getBackgroundColor().equals(testData.cssExpectedValue);
     }
 
     @Test

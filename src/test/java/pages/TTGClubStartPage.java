@@ -5,16 +5,16 @@ import io.qameta.allure.Step;
 import pages.components.MainPageSearchModal;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+
 
 public class TTGClubStartPage {
 
+    private final String backgroundColor = $("#body").getCssValue("background-color");
     private final SelenideElement pageSearchRow = $(".search_row_g");
     private final SelenideElement classesCard = $("a[href='/classes'][class='card']");
     private final SelenideElement tokenatorChapter = $(".token_library");
     private final SelenideElement formulaCalculator = $(".n-float-button");
     private final SelenideElement videoLink = $("._link_1lg7o_18");
-    private final SelenideElement colorThemeToggle = $$(".navbar__btn").get(5);
 
 
     @Step("Call search modal from the main page")
@@ -51,12 +51,9 @@ public class TTGClubStartPage {
         return $(".base-modal__title");
     }
 
-    @Step("Change the theme to dark")
-    public SelenideElement turnDarkTheme() {
-        colorThemeToggle.click();
-        $$(".__button-1vhidqx-lmmd").get(1).click();
-
-        return $("#body");
+    @Step("Get background color")
+    public String getBackgroundColor() {
+        return backgroundColor;
     }
 
     @Step("Calculate the formula")

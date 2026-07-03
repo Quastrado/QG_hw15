@@ -11,6 +11,7 @@ public class Navbar {
     private final SelenideElement navbarBookmarksButton = $$(".navbar__btn").get(1);
     private final SelenideElement navbarSearchButton = $$(".navbar__btn").get(2);
     private final SelenideElement navbarBugReportButton = $$(".navbar__btn").get(3);
+    private final SelenideElement colorThemeButton = $$(".navbar__btn").get(5);
 
     @Step("Navigation button click")
     public NavigationMenu navigationMenuButtonClick() {
@@ -38,6 +39,13 @@ public class Navbar {
         navbarSearchButton.click();
 
         return new SearchModal();
+    }
+
+    @Step("Color theme button click")
+    public ColorThemeModal colorThemeButtonClick() {
+        colorThemeButton.click();
+
+        return new ColorThemeModal();
     }
 
 }
