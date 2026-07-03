@@ -1,8 +1,8 @@
 package tests;
 
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pages.ClassesPage;
 import pages.SearchPage;
 import pages.TTGClubSpellsScreenPage;
 import pages.TokenatorPage;
@@ -47,8 +47,8 @@ public class TTGStartPageTests extends TestBase {
     @Test
     @DisplayName("Checking the script for navigating to a class page from the main page")
     void checkGoingToTheClassPage() {
-        SelenideElement classArchetypesList = ttgClubStartPage.goingToTheClassPage(testData.choosenClass);
-        classArchetypesList.shouldHave(visible);
+        ClassesPage classesPage = ttgClubStartPage.goingToTheClassPage();
+        classesPage.classBardLinkCLick().getBardClassArchetypesList().shouldHave(visible);
     }
 
     @Test

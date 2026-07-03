@@ -27,11 +27,10 @@ public class TTGClubStartPage {
     }
 
     @Step("Go to the class page from the main page")
-    public SelenideElement goingToTheClassPage(String choosenClass) {
+    public ClassesPage goingToTheClassPage() {
         classesCard.click();
-        $("a[href='/classes/" + choosenClass + "'][class='link-item-expand__link']").click();
 
-        return $(".link-item-expand__arch-list");
+        return new ClassesPage();
     }
 
     @Step("Go to the tokenizer page from the main page")
