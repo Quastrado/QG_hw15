@@ -52,10 +52,10 @@ public class TTGClubStartPage {
         return new VideoMadal();
     }
 
-    @Step("Get background color")
-    public String getBackgroundColor() {
+    @Step("Get background")
+    public SelenideElement getBackgroundColor() {
 
-        return background.getCssValue("background-color");
+        return background;
     }
 
     @Step("Calculate the formula")

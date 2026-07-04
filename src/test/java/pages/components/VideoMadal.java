@@ -10,7 +10,7 @@ public class VideoMadal {
     private final SelenideElement videoTitle = $(".base-modal__title");
 
     @Step("Get video title")
-    public String getVideoTitle(){
-        return videoTitle.text();
+    public SelenideElement getVideoTitle(){
+        return videoTitle;
     }
 }

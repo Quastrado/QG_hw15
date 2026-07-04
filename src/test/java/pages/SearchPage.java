@@ -10,8 +10,8 @@ public class SearchPage {
     private final SelenideElement pageTitle = $(".page-layout__title");
 
     @Step("Get page title text")
-    public String getPageTitleText() {
+    public SelenideElement getPageTitle() {
 
-        return pageTitle.getText();
+        return pageTitle;
     }
 }

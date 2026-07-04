@@ -10,7 +10,7 @@ import pages.components.*;
 import tests.testdata.TestDataTTGClub;
 
 import static com.codeborne.selenide.Condition.*;
-
+import static io.qameta.allure.Allure.step;
 
 
 public class TTGStartPageTests extends TestBase {
@@ -27,35 +27,45 @@ public class TTGStartPageTests extends TestBase {
                 testData.searchResultLink,
                 testData.searchResultPage
         );
-        assert resultPage.getSectionHeaderText(testData.searchQuery).equals(testData.searchQuery);
+        step("The expected title of the resulting page is displayed", () ->
+            resultPage.getSectionHeaderText().shouldHave(text(testData.searchQuery))
+        );
     }
 
     @Test
     @DisplayName("Checking the navigation menu display")
     void checkOpenNavigationModal() {
         NavigationMenu navigationMenu = navbar.navigationMenuButtonClick();
-        navigationMenu.becomeVisible();
+        step("The navigation menu is displayed", () ->
+            navigationMenu.becomeVisible()
+        );
     }
 
     @Test
     @DisplayName("Checking the display of the bookmarks list")
     void checkOpenBookmarksList() {
         Bookmarks bookmarks = navbar.bookmarksButtonClick();
-        bookmarks.becomeVisible();
+        step("A list of bookmarks is displayed", () ->
+            bookmarks.becomeVisible()
+        );
     }
 
     @Test
     @DisplayName("Checking the script for navigating to a class page from the main page")
     void checkGoingToTheClassPage() {
         ClassesPage classesPage = ttgClubStartPage.goingToTheClassPage();
-        classesPage.classBardLinkCLick().getBardClassArchetypesList().shouldHave(visible);
+        step("The class page displays a list of archetypes", () ->
+            classesPage.classBardLinkCLick().getBardClassArchetypesList().shouldHave(visible)
+        );
     }
 
     @Test
     @DisplayName("Checking the transition to the Tokenator page")
     void checkGoingToTheTokenator() {
         TokenatorPage tokenatorPage = ttgClubStartPage.redirectToTokenator();
-        tokenatorPage.getPageTitle().shouldHave(visible);
+        step("The resulting calculator field displays the calculation result", () ->
+            tokenatorPage.getPageTitle().shouldHave(visible)
+        );
     }
 
     @Test
@@ -63,7 +73,9 @@ public class TTGStartPageTests extends TestBase {
     void checkFormulaCalculate() {
         FormulaCalculator formulaCalculator = ttgClubStartPage.formulaCalculatorButtonClick();
         formulaCalculator.calculateFormula(testData.formula);
-        formulaCalculator.getCalculateResult().shouldNotBe(empty);
+        step("The resulting calculator field displays the calculation result", () ->
+            formulaCalculator.getCalculateResult().shouldNotBe(empty)
+        );
     }
 
     @Test
@@ -71,7 +83,9 @@ public class TTGStartPageTests extends TestBase {
     void openVideoPlayerModal() {
         String videoLinkTitle = ttgClubStartPage.getVideoLinkText();
         VideoMadal videoMadal = ttgClubStartPage.openVideo();
-        assert videoMadal.getVideoTitle().equals(videoLinkTitle);
+        step("The title text of the video window matches the text of the link element", () ->
+            videoMadal.getVideoTitle().shouldHave(text(videoLinkTitle))
+        );
     }
 
     @Test
@@ -79,7 +93,9 @@ public class TTGStartPageTests extends TestBase {
     void checkDarkThemeTurning() {
         ColorThemeModal colorThemeModal = navbar.colorThemeButtonClick();
         colorThemeModal.setDarkColorTheme();
-        assert ttgClubStartPage.getBackgroundColor().equals(testData.cssExpectedValue);
+        step("The background color has changed to dark", () ->
+            ttgClubStartPage.getBackgroundColor().shouldHave(text(testData.cssExpectedValue))
+        );
     }
 
     @Test
@@ -87,14 +103,18 @@ public class TTGStartPageTests extends TestBase {
     void checkGoingToTheSearchPage() {
         SearchModal searchModal = navbar.searchButtonClick();
         SearchPage searchPage = searchModal.redirectToSearchPage();
-        assert searchPage.getPageTitleText().equals(testData.searchPageTitle);
+        step("The search page displayed the expected title", () ->
+            searchPage.getPageTitle().shouldHave(text(testData.searchPageTitle))
+        );
     }
 
     @Test
     @DisplayName("Checking the display of the bug message window")
     void reportAboutBug() {
         BugReportModal bugReportModal = navbar.bugReportButtonClick();
-        bugReportModal.becomeVisible();
+        step("The bug report window is displayed", () ->
+            bugReportModal.becomeVisible()
+        );
     }
 
 }
