@@ -53,9 +53,9 @@ public class TTGClubStartPage {
     }
 
     @Step("Get background")
-    public SelenideElement getBackgroundColor() {
+    public String getBackgroundColor() {
 
-        return background;
+        return background.getCssValue("background-color");
     }
 
     @Step("Calculate the formula")

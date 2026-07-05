@@ -11,6 +11,7 @@ import tests.testdata.TestDataTTGClub;
 
 import static com.codeborne.selenide.Condition.*;
 import static io.qameta.allure.Allure.step;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TTGStartPageTests extends TestBase {
@@ -84,7 +85,10 @@ public class TTGStartPageTests extends TestBase {
     void checkDarkThemeTurning() {
         ColorThemeModal colorThemeModal = navbar.colorThemeButtonClick();
         colorThemeModal.setDarkColorTheme();
-        ttgClubStartPage.getBackgroundColor().shouldHave(text(testData.cssExpectedValue));
+        step("The background color has changed to dark", () -> {
+            String backgroundColor = ttgClubStartPage.getBackgroundColor();
+            assertEquals(testData.cssExpectedValue, backgroundColor);
+        });
     }
 
     @Test
