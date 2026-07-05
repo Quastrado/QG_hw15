@@ -47,6 +47,7 @@ clean test \
 - BROWSER_SIZE (параметр расширения браузера)
 
  ### Из Jemkins
+ [Ссылка на задачу Jenkins](https://jenkins.autotests.cloud/view/java_students/job/quastrado_TTGClub_job/)
 <p align="center">
 <img title="Job" src="images/job.png">
 </p>
@@ -56,6 +57,7 @@ clean test \
 - Запустить сборку
 
 ## Allure Report
+[Ссылка на отчёт в Allure](https://jenkins.autotests.cloud/view/java_students/job/quastrado_TTGClub_job/allure/)
 ### Дашборд
 <p align="center">
 <img title="Overview" src="images/allure_report_overview.png">
