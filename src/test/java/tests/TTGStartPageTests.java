@@ -36,36 +36,29 @@ public class TTGStartPageTests extends TestBase {
     @DisplayName("Checking the navigation menu display")
     void checkOpenNavigationModal() {
         NavigationMenu navigationMenu = navbar.navigationMenuButtonClick();
-        step("The navigation menu is displayed", () ->
-            navigationMenu.becomeVisible()
-        );
+        navigationMenu.becomeVisible();
     }
 
     @Test
     @DisplayName("Checking the display of the bookmarks list")
     void checkOpenBookmarksList() {
         Bookmarks bookmarks = navbar.bookmarksButtonClick();
-        step("A list of bookmarks is displayed", () ->
-            bookmarks.becomeVisible()
-        );
+        bookmarks.becomeVisible();
+
     }
 
     @Test
     @DisplayName("Checking the script for navigating to a class page from the main page")
     void checkGoingToTheClassPage() {
         ClassesPage classesPage = ttgClubStartPage.goingToTheClassPage();
-        step("The class page displays a list of archetypes", () ->
-            classesPage.classBardLinkCLick().getBardClassArchetypesList().shouldHave(visible)
-        );
+        classesPage.classBardLinkCLick().getBardClassArchetypesList().shouldHave(visible);
     }
 
     @Test
     @DisplayName("Checking the transition to the Tokenator page")
     void checkGoingToTheTokenator() {
         TokenatorPage tokenatorPage = ttgClubStartPage.redirectToTokenator();
-        step("The resulting calculator field displays the calculation result", () ->
-            tokenatorPage.getPageTitle().shouldHave(visible)
-        );
+        tokenatorPage.getPageTitle().shouldHave(visible);
     }
 
     @Test
@@ -73,9 +66,7 @@ public class TTGStartPageTests extends TestBase {
     void checkFormulaCalculate() {
         FormulaCalculator formulaCalculator = ttgClubStartPage.formulaCalculatorButtonClick();
         formulaCalculator.calculateFormula(testData.formula);
-        step("The resulting calculator field displays the calculation result", () ->
-            formulaCalculator.getCalculateResult().shouldNotBe(empty)
-        );
+        formulaCalculator.getCalculateResult().shouldNotBe(empty);
     }
 
     @Test
@@ -93,9 +84,7 @@ public class TTGStartPageTests extends TestBase {
     void checkDarkThemeTurning() {
         ColorThemeModal colorThemeModal = navbar.colorThemeButtonClick();
         colorThemeModal.setDarkColorTheme();
-        step("The background color has changed to dark", () ->
-            ttgClubStartPage.getBackgroundColor().shouldHave(text(testData.cssExpectedValue))
-        );
+        ttgClubStartPage.getBackgroundColor().shouldHave(text(testData.cssExpectedValue));
     }
 
     @Test
@@ -103,18 +92,14 @@ public class TTGStartPageTests extends TestBase {
     void checkGoingToTheSearchPage() {
         SearchModal searchModal = navbar.searchButtonClick();
         SearchPage searchPage = searchModal.redirectToSearchPage();
-        step("The search page displayed the expected title", () ->
-            searchPage.getPageTitle().shouldHave(text(testData.searchPageTitle))
-        );
+        searchPage.getPageTitle().shouldHave(text(testData.searchPageTitle));
     }
 
     @Test
     @DisplayName("Checking the display of the bug message window")
     void reportAboutBug() {
         BugReportModal bugReportModal = navbar.bugReportButtonClick();
-        step("The bug report window is displayed", () ->
-            bugReportModal.becomeVisible()
-        );
+        bugReportModal.becomeVisible();
     }
 
 }
