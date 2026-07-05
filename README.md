@@ -70,7 +70,7 @@ clean test \
 
 ### Видео прохождения теста
 <p align="center">
-<img title="Video" src="video/5f08f693eff7119c3ce9a1901c5ca14b.mp4">
+<img title="Video" src="video/5f08f693eff7119c3ce9a1901c5ca14b.gif">
 </p>
 
 ### Метрики
