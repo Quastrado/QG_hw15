@@ -11,7 +11,7 @@
 <a href="https://qameta.io/allure-report/"><img src="https://avatars.githubusercontent.com/u/5879127?s=200&v=4" width="50" height="50"/></a>
 <a href="https://www.jenkins.io/"><img src="https://www.jenkins.io/images/logos/jenkins/jenkins.svg" width="50" height="50"/></a>
 <a href="https://www.atlassian.com/software/jira"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" width="50" height="50"/></a>
-<a href="https://telegram.org/"><img src="https://w7.pngwing.com/pngs/41/77/png-transparent-logo-telegram-logos-and-brands-icon.png" width="50" height="50"/></a>
+<a href="https://telegram.org/"><img src="https://i.pinimg.com/originals/4a/4d/ee/4a4dee00b008fdf71e32f694ba17453f.jpg?nii=t" width="50" height="50"/></a>
 </p>
 
 ## Список проверок
