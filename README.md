@@ -66,12 +66,18 @@ clean test \
 <img title="Suites" src="images/allure_report_suites.png">
 </p>
 
+### Видео прохождения теста
+<p align="center">
+<img title="Suites" src="video/5f08f693eff7119c3ce9a1901c5ca14b.mp4">
+</p>
+
 ### Метрики
 <p align="center">
 <img title="Graphs" src="images/allure_report_graphs.png">
 </p>
 
 ## Allure TestOps
+[Ссылка на Allure TestOps](https://allure.autotests.cloud/project/5250/dashboards)
 ### Дашборд
 <p align="center">
 <img title="Dashboard" src="images/dashboard.png">
